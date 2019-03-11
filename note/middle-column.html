@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>多种方法上下居中</title>
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .cover {
+            margin: 20px;
+        }
+
+        .cover p {
+            width: 200px;
+            height: 25px;
+            font-size: 12px;
+        }
+
+        .out {
+            position: relative;
+            width: 200px;
+            height: 110px;
+            background-color: cadetblue;
+        }
+
+        .in {
+            width: 60px;
+            height: 30px;
+            background-color: coral;
+        }
+
+        .in1 {
+            position: absolute;
+            top: 50%;
+            margin-top: -15px;
+        }
+
+        .in2-1 {
+            position: absolute;
+            top: 50%;
+            /* border: 0px; */
+        }
+
+        .in2-2 {
+            margin-top: -25%;
+        }
+
+        .in3 {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%)
+        }
+
+        .in4 {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        .in5 {
+            display: flex;
+            align-items: center;
+        }
+
+        .in6 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .in7-1 {
+            line-height: 110px;
+            font-size: 0;
+        }
+
+        .in7-2 {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .in8-1 {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cover">
+        <p>利用绝对定位一半 + -margin 子元素的一半(固定高度，非响应)</p>
+        <div class="out">
+            <div class="in1 in"></div>
+        </div>
+    </div>
+    <!-- 左右居中不会出现高度坍塌 -->
+    <div class="cover">
+        <p>利用绝对定位一半 + 外加div+ margin-top:-25%</p>
+        <div class="out">
+            <div class="in2-1">
+                <div class="in2-2 in"></div>
+            </div>
+        </div>
+    </div>
+    <div class="cover">
+        <p>利用绝对定位一半 + transform</p>
+        <div class="out">
+            <div class="in3 in"></div>
+        </div>
+    </div>
+    <div class="cover">
+        <p>绝对定位 + margin: auto</p>
+        <div class="out">
+            <div class="in4 in"></div>
+        </div>
+    </div>
+    <div class="cover">
+        <p>利用flex + align-items</p>
+        <div class="out in5">
+            <div class="in"></div>
+        </div>
+    </div>
+    <div class="cover">
+        <p>利用flex + justify-content + flex-direction</p>
+        <div class="out in6 ">
+            <div class="in"></div>
+        </div>
+    </div>
+    <div class="cover">
+        <p>利用vertical-align:center</p>
+        <div class="out in7-1">
+            <div class="in7-2 in"></div>
+        </div>
+    </div>
+    <div class="cover">
+        <p>利用table-cell</p>
+        <div class="out in8-1">
+            <div class="in8-2 in"></div>
+        </div>
+    </div>
+</body>
+
+</html>
