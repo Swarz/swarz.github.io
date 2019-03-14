@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>多种方法上下居中</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h1><a href="https://github.com/Swarz">我的GitHub，欢迎给我+++星星</a></h1>
+    <h4 style="color:red">打开控制台看输出</h4>
+    <pre>
+var arr = [1, 4, 2, 1, 5, 4, 2, 5, 6, '2', 3, 1]
+//自己重复判断（删除/添加）
+var a = [...arr]
+for (var i = a.length - 1; i > 0; i--) {
+    if (a.indexOf(a[i]) != i) a.splice(i, 1)
+}
+console.log('1.自己重复判断\n', a);
+
+//新数组重复判断
+var b = []
+arr.forEach((e, i) => {
+    if (b.indexOf(e) == -1) b.push(e)
+});
+console.log('2.新数组重复判断\n', b);
+
+//es6 set
+a = [...arr]
+b = []
+b = [...new Set(a)]
+console.log('3.set\n', b); //new Set(a):Set { 1, 4, 2, 5, 6, '2', 3 }
+
+//fillter
+b = []
+b = arr.filter((e, i) => arr.indexOf(e) == i)
+console.log('4.fillter\n', b);
+
+//对象属性
+var c = {}
+b = []
+arr.forEach(e => {
+    if (!c[e]) {
+        c[e] = true
+        b.push(e)
+    }
+})
+console.log('5.对象属性\n', b);
+//sort 相邻比较
+a = [...arr]
+a.sort() //重写排序规则解决字符问题
+a.reduceRight((t, e, i) => {
+    if (e == a[i + 1]) a.splice(i + 1, 1)
+})
+console.log('6.sort 相邻比较\n', a);
+    </pre>
+</body>
+<script>
+    var arr = [1, 4, 2, 1, 5, 4, 2, 5, 6, '2', 3, 1]
+    //自己重复判断（删除/添加）
+    var a = [...arr]
+    for (var i = a.length - 1; i > 0; i--) {
+        if (a.indexOf(a[i]) != i) a.splice(i, 1)
+    }
+    console.log('1.自己重复判断\n', a);
+
+    //新数组重复判断
+    var b = []
+    arr.forEach((e, i) => {
+        if (b.indexOf(e) == -1) b.push(e)
+    });
+    console.log('2.新数组重复判断\n', b);
+
+    //es6 set
+    a = [...arr]
+    b = []
+    b = [...new Set(a)]
+    console.log('3.set\n', b); //new Set(a):Set { 1, 4, 2, 5, 6, '2', 3 }
+
+    //fillter
+    b = []
+    b = arr.filter((e, i) => arr.indexOf(e) == i)
+    console.log('4.fillter\n', b);
+
+    //对象属性
+    var c = {}
+    b = []
+    arr.forEach(e => {
+        if (!c[e]) {
+            c[e] = true
+            b.push(e)
+        }
+    })
+    console.log('5.对象属性\n', b);
+    //sort 相邻比较
+    a = [...arr]
+    a.sort() //重写排序规则解决字符问题
+    a.reduceRight((t, e, i) => {
+        if (e == a[i + 1]) a.splice(i + 1, 1)
+    })
+    console.log('6.sort 相邻比较\n', a);
+</script>
+
+</html>
