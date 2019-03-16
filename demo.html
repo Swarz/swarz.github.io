@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .contain {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .box {
+            width: 150px;
+            height: 200px;
+            background-color: peru;
+            margin: 10px 0;
+            /* margin: 50px auto; */
+            /* transition: all 1s linear; */
+        }
+
+        .box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            background-color: cadetblue;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contain">
+        <div class="box t1">
+            <button class='btn' onclick='changeClr(this)'></button>
+        </div>
+        <div class="box t2">
+            <button class='btn' onclick='changeClr(this)'></button>
+        </div>
+        <div class="box t3">
+            <button class='btn' onclick='changeClr(this)'></button>
+        </div>
+        <div class="box t4">
+            <button class='btn' onclick='changeClr(this)'></button>
+        </div>
+        <div class="box t5">
+            <button class='btn' onclick='changeClr(this)'></button>
+        </div>
+        <div class="box t6">
+            <button class='btn' onclick='changeClr(this)'></button>
+        </div>
+    </div>
+</body>
+<script>
+    color = ['aqua', 'black', 'blue', 'fuchsia', 'gray', 'green', 'lime', 'maroon', 'navy', 'olive', 'purple', 'red',
+        'silver', 'teal', 'yellow'
+    ]
+
+    function changeClr(btn) {
+        var xx = Math.round(Math.random() * 15)
+        btn.style.backgroundColor = color[xx]
+    }
+</script>
+
+</html>
