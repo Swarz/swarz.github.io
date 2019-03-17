@@ -32,22 +32,22 @@
 <body>
     <div id="contain">
         <div class="box t1">
-            <button class='btn' data-click="changeBGC"></button>
+            <button class='btn' data-click="changeBGC">b1</button>
         </div>
         <div class="box t2">
-            <button class='btn' data-click="cust_alert" , data-data='Kael value'></button>
+            <button class='btn' data-click="cust_alert" , data-data='Kael value'>b2</button>
         </div>
         <div class="box t3">
-            <button class='btn' data-click="changeBGC"></button>
+            <button class='btn' data-click="changeBGC">b3</button>
         </div>
         <div class="box t4">
-            <button class='btn' data-click="changeBGC"></button>
+            <button class='btn' data-click="changeBGC">b4</button>
         </div>
         <div class="box t5">
-            <button class='btn' data-click="changeBGC"></button>
+            <button class='btn' data-click="changeBGC">b5</button>
         </div>
         <div class="box t6">
-            <button class='btn' data-click="changeBGC"></button>
+            <button class='btn' data-click="changeBGC">b6</button>
         </div>
     </div>
     <br>
@@ -121,6 +121,8 @@
             evt.preventDefault();
             log("touchend/touchleave.");
             var touches = evt.changedTouches;
+            console.log(touches);
+
             for (var i = 0; i < touches.length; i++) {
                 var idx = ongoingTouchIndexById(touches[i].identifier);
                 if (idx >= 0) {
@@ -129,8 +131,12 @@
                         ongoingTouches[idx].target.canChange = false
                         setTimeout(() => {
                             ongoingTouches[idx].target.canChange = true
+                            console.log(ongoingTouches);
+
                             ongoingTouches.splice(idx, 1)
                         }, 300);
+                    } else {
+                        ongoingTouches.splice(idx, 1)
                     }
 
                 } else {
@@ -180,12 +186,10 @@
                 if (color[num] == c) {
                     return random()
                 } else {
-                    console.log(num);
                     return color[num];
                 }
             }
             var cc = random();
-            console.log('new:' + cc);
             dom.style.backgroundColor = cc;
         }
 
