@@ -32,22 +32,22 @@
 <body>
     <div id="contain">
         <div class="box t1">
-            <button class='btn'></button>
+            <button class='btn' data-click="redmc"></button>
         </div>
         <div class="box t2">
-            <button class='btn'></button>
+            <button class='btn' data-click="redmc"></button>
         </div>
         <div class="box t3">
-            <button class='btn'></button>
+            <button class='btn' data-click="redmc"></button>
         </div>
         <div class="box t4">
-            <button class='btn'></button>
+            <button class='btn' data-click="redmc"></button>
         </div>
         <div class="box t5">
-            <button class='btn'></button>
+            <button class='btn' data-click="redmc"></button>
         </div>
         <div class="box t6">
-            <button class='btn'></button>
+            <button class='btn' data-click="redmc"></button>
         </div>
     </div>
     <br>
@@ -128,7 +128,7 @@
                 var idx = ongoingTouchIndexById(touches[i].identifier);
 
                 if (idx >= 0) {
-                    changeClr(ongoingTouches[idx].target)
+                    transform(ongoingTouches[idx].target)
                     ongoingTouches.splice(idx, 1)
                 } else {
                     log("can't figure out which touch to end");
@@ -153,17 +153,25 @@
             'silver', 'teal', 'yellow'
         ]
 
-        function changeClr(btn) {
+        function transform(dom) {
             var num
-            console.log(btn);
-
-            function redmc() {
-                num = Math.round(Math.random() * 15)
-                var color = btn.style.backgroundColor
-                if (color[num] == color) redmc()
+            console.log(dom);
+            var func_str = dom.getAttribute('data-click');
+            console.log(func_str)
+            if (func_str == null) {
+                return;
             }
-            redmc()
-            btn.style.backgroundColor = color[num]
+            var fn = window[func_str]
+            console.log(fn)
+            fn(dom)
+            console.log("end")
+
+        }
+
+        function redmc(dom) {
+            console.log(dom)
+            num = Math.round(Math.random() * 15)
+            dom.style.backgroundColor = color[num]
         }
 
         //拷贝一个触摸对象
