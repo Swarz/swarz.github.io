@@ -144,7 +144,6 @@
             evt.preventDefault();
             log("touchcancel.");
             var touches = evt.changedTouches;
-            Y
             for (var i = 0; i < touches.length; i++) {
                 ongoingTouches.splice(i, 1); // remove it; we're done
             }
@@ -179,7 +178,7 @@
                 var num = Math.round(Math.random() * 14)
                 var c = dom.style.backgroundColor
                 if (color[num] == c) {
-                    random()
+                    return random()
                 } else {
                     console.log(num);
                     return color[num];

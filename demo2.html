@@ -61,7 +61,7 @@
     function random() {
         var num = Math.round(Math.random() * 14)
         if (color[num] == old) {
-            random()
+            return random()
         } else {
             log(num + '--' + color[num]);
             return color[num];
