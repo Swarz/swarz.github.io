@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>return demo</title>
+    <script>
+        var color = ['aqua', 'black', 'blue', 'fuchsia', 'gray', 'green', 'lime', 'maroon', 'navy', 'olive', 'purple',
+            'red', 'silver', 'teal', 'yellow'
+        ]
+        var old = 'red'
+
+        function test() {
+            function random() {
+                var num = Math.round(Math.random() * 14)
+                if (color[num] == old) {
+                    random()
+                } else {
+                    console.log(num);
+                    return color[num];
+                }
+            }
+            var cc = random();
+            console.log('new:' + cc);
+            if (cc === undefined) return
+            old = cc;
+            test()
+        }
+        test()
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
