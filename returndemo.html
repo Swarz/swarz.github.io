@@ -6,40 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>return demo</title>
+    <link rel="stylesheet" href="./common/highlight/styles/an-old-hope.css">
+    <script src="./common/highlight/highlight.pack.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
 </head>
 
 <body style="display:flex">
     <div>
         <pre style="border: 1px solid #ccc;">
-    var color = ['aqua', 'black', 'blue', 'fuchsia', 'gray', 'green', 'lime', 'maroon', 'navy', 'olive', 'purple',
-        'red', 'silver', 'teal', 'yellow'
-    ]
-    var old = 'red'
-
-    function test() {
-        function random() {
-            var num = Math.round(Math.random() * 14)
-            if (color[num] == old) {
-                random()
-            } else {
-                log(num);
-                return color[num];
-            }
-        }
-        var cc = random();
-        log('new:' + cc);
-        if (cc === undefined) return
-        old = cc;
-        setTimeout(() => {
-            test()
-        }, 300);
-    }
-    test()
-
-    function log(msg) {
-        var p = document.getElementById('log');
-        p.innerHTML += "\n" + msg;
-    }
+            <code class="JavaScript">
+  var color = ['aqua', 'black', 'blue', 'fuchsia', 'gray', 'green', 'lime', 'maroon', 'navy', 'olive', 'purple',
+      'red', 'silver', 'teal', 'yellow'
+  ]
+  var old = 'red'
+  function test() {
+      function random() {
+          var num = Math.round(Math.random() * 14)
+          if (color[num] == old) {
+              random()
+          } else {
+              log(num);
+              return color[num];
+          }
+      }
+      var cc = random();
+      log('new:' + cc);
+      if (cc === undefined) return
+      old = cc;
+      setTimeout(() => {
+          test()
+      }, 300);
+  }
+  test()
+  function log(msg) {
+      var p = document.getElementById('log');
+      p.innerHTML += "\n" + msg;
+  }
+            </code>
         </pre>
     </div>
     <pre id="log" style="border: 1px solid #ccc;">返回值为undefined停止<br></pre>
