@@ -4,6 +4,29 @@
 <head>
     <title>Touch Test</title>
     <meta name="viewport" content="width=device-width, user-scalable=no">
+    <style>
+        #contain {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .box {
+            width: 150px;
+            height: 200px;
+            background-color: peru;
+            margin: 10px 0;
+            /* margin: 50px auto; */
+            /* transition: all 1s linear; */
+        }
+
+        .btn {
+            background-color: cadetblue;
+            width: 100px;
+            height: 100px;
+        }</style>
 </head>
 
 <body>
@@ -51,12 +74,12 @@
         function handleStart(evt) {
             evt.preventDefault(); //阻止事件的默认行为
             log("touchstart.");
-            log(evt.path[0]);
-
             var touches = evt.changedTouches;
 
             for (var i = 0; i < touches.length; i++) {
                 log("touchstart:" + i + "...");
+                console.log(touches[i].target);
+
                 ongoingTouches.push(copyTouch(touches[i]));
                 // var color = colorForTouch(touches[i]);
                 // ctx.beginPath();
@@ -105,7 +128,7 @@
                 var idx = ongoingTouchIndexById(touches[i].identifier);
 
                 if (idx >= 0) {
-                    changeClr(ongoingTouches[idx])
+                    changeClr(ongoingTouches[idx].target)
                     ongoingTouches.splice(idx, 1)
                 } else {
                     log("can't figure out which touch to end");
@@ -147,6 +170,7 @@
         function copyTouch(touch) {
             return {
                 identifier: touch.identifier,
+                target: touch.target,
                 pageX: touch.pageX,
                 pageY: touch.pageY
             };
