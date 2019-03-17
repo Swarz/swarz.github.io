@@ -70,10 +70,19 @@
     ]
 
     function changeClr(btn) {
-        console.log(btn);
+        var num
 
-        var xx = Math.round(Math.random() * 15)
-        btn.style.backgroundColor = color[xx]
+        function redmc() {
+            num = Math.round(Math.random() * 15)
+            var color = btn.style.backgroundColor
+            if (color[num] == color) {
+                redmc()
+            }
+        }
+        redmc()
+        console.log(color[num]);
+
+        btn.style.backgroundColor = color[num]
     }
 </script>
 
