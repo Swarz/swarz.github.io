@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>重复输出字符串</title>
+    <link rel="stylesheet" href="../common/highlight/styles/an-old-hope.css">
+    <script src="../common/highlight/highlight.pack.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+    <style>
+        .codePanel {
+            display: flex;
+        }
+
+        .codePanel .JavaScript {
+            padding: 0 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1><a href="https://github.com/Swarz">我的GitHub，欢迎给我+++星星</a></h1>
+    <h4 style="color:red">打开控制台看输出</h4>
+    <pre class="codePanel">
+        <code class="JavaScript">
+  /******************************************
+    1. 最简洁 三元表达式 + 递归
+  *******************************************/
+  var times = (str, num) => {
+    return num > 1 ? str += times(str, --num) : str;
+  }
+  console.log('1', times('abc', 3));
+  
+  /******************************************
+    2. ES6 repeat()
+  *******************************************/
+  var times2 = (str, num) => str.repeat(num);
+  console.log('2', times2('abc', 3));
+  
+  /******************************************
+    3. 数组方法 join()
+  *******************************************/
+  var times3 = (str, num) => new Array(num + 1).join(str);
+  console.log('3', times3('abc', 3));
+  
+  /******************************************
+    4. 数组方法 fill() join()
+  *******************************************/
+  var times4 = (str, num) => new Array(num).fill(str).join('');
+  console.log('4', times4('abc', 3));
+  
+  /******************************************
+      5. 可用call()改变Array原型链上join()方法到对象
+      可惜么理解 用对象添加属性？
+  *******************************************/
+  var times5 = (str, num) => Array.prototype.join.call({
+    length: ++num
+  }, str);
+  console.log('5', times5('abc', 3));
+  
+  /******************************************
+    6.string.replace
+  *******************************************/
+  var times6 = (str, num) => Math.pow(10, num - 1).toString().replace(/1|0/g, str)
+  console.log('6', times6('abc', 3));
+  
+  
+  /*++++++++++++++++++++++++++++++++++++++++++
+      必须用一句代码实现的话
+      除了第一种，都可以用匿名函数立即执行实现
+  ++++++++++++++++++++++++++++++++++++++++++*/
+  //例如：
+  console.log('e.g.1', ((str, num) => str.repeat(num))('abc', 3));
+  console.log('e.g.2', ((str, num) => new Array(num + 1).join(str))('abc', 3));
+    </code>
+    </pre>
+</body>
+<script>
+    /******************************************
+    1. 最简洁 三元表达式 + 递归
+    *******************************************/
+    var times = (str, num) => {
+        return num > 1 ? str += times(str, --num) : str;
+    }
+    console.log('1', times('abc', 3));
+
+    /******************************************
+      2. ES6 repeat()
+    *******************************************/
+    var times2 = (str, num) => str.repeat(num);
+    console.log('2', times2('abc', 3));
+
+    /******************************************
+      3. 数组方法 join()
+    *******************************************/
+    var times3 = (str, num) => new Array(num + 1).join(str);
+    console.log('3', times3('abc', 3));
+
+    /******************************************
+      4. 数组方法 fill() join()
+    *******************************************/
+    var times4 = (str, num) => new Array(num).fill(str).join('');
+    console.log('4', times4('abc', 3));
+
+    /******************************************
+    	5. 可用call()改变Array原型链上join()方法到对象
+    	可惜么理解 用对象添加属性？
+    *******************************************/
+    var times5 = (str, num) => Array.prototype.join.call({
+        length: ++num
+    }, str);
+    console.log('5', times5('abc', 3));
+
+    /******************************************
+      6.string.replace
+    *******************************************/
+    var times6 = (str, num) => Math.pow(10, num - 1).toString().replace(/1|0/g, str)
+    console.log('6', times6('abc', 3));
+
+
+    /*++++++++++++++++++++++++++++++++++++++++++
+    	必须用一句代码实现的话
+    	除了第一种，都可以用匿名函数立即执行实现
+    ++++++++++++++++++++++++++++++++++++++++++*/
+    //例如：
+    console.log('e.g.1', ((str, num) => str.repeat(num))('abc', 3));
+    console.log('e.g.2', ((str, num) => new Array(num + 1).join(str))('abc', 3));
+</script>
+
+</html>

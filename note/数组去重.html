@@ -6,15 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>多种方法上下居中</title>
+    <link rel="stylesheet" href="../common/highlight/styles/an-old-hope.css">
+    <script src="../common/highlight/highlight.pack.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
     <style>
+        .codePanel {
+            display: flex;
+        }
 
+        .codePanel .JavaScript {
+            padding: 0 20px;
+        }
     </style>
 </head>
 
 <body>
     <h1><a href="https://github.com/Swarz">我的GitHub，欢迎给我+++星星</a></h1>
     <h4 style="color:red">打开控制台看输出</h4>
-    <pre>
+    <pre class="codePanel">
+        <code class="JavaScript">
 var arr = [1, 4, 2, 1, 5, 4, 2, 5, 6, '2', 3, 1]
 //自己重复判断（删除/添加）
 var a = [...arr]
@@ -30,7 +42,7 @@ arr.forEach((e, i) => {
 });
 console.log('2.新数组重复判断\n', b);
 
-//es6 set
+//set
 a = [...arr]
 b = []
 b = [...new Set(a)]
@@ -58,6 +70,7 @@ a.reduceRight((t, e, i) => {
     if (e == a[i + 1]) a.splice(i + 1, 1)
 })
 console.log('6.sort 相邻比较\n', a);
+    </code>
     </pre>
 </body>
 <script>
@@ -76,7 +89,7 @@ console.log('6.sort 相邻比较\n', a);
     });
     console.log('2.新数组重复判断\n', b);
 
-    //es6 set
+    //set
     a = [...arr]
     b = []
     b = [...new Set(a)]

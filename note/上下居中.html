@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>多种方法上下居中</title>
     <style>
-        body {
+        .container {
             display: flex;
             flex-wrap: wrap;
         }
@@ -94,55 +94,57 @@
 
 <body>
     <h1><a href="https://github.com/Swarz">我的GitHub，欢迎给我+++星星</a></h1>
-    <div class="cover">
-        <p>利用绝对定位一半 + -margin 子元素的一半(固定高度，非响应)</p>
-        <div class="out">
-            <div class="in1 in"></div>
-        </div>
-    </div>
-    <!-- 左右居中不会出现高度坍塌 -->
-    <div class="cover">
-        <p>利用绝对定位一半 + 外加div+ margin-top:-25%</p>
-        <div class="out">
-            <div class="in2-1">
-                <div class="in2-2 in"></div>
+    <div class="container">
+        <div class="cover">
+            <p>利用绝对定位一半 + -margin 子元素的一半(固定高度，非响应)</p>
+            <div class="out">
+                <div class="in1 in"></div>
             </div>
         </div>
-    </div>
-    <div class="cover">
-        <p>利用绝对定位一半 + transform</p>
-        <div class="out">
-            <div class="in3 in"></div>
+        <!-- 左右居中不会出现高度坍塌 -->
+        <div class="cover">
+            <p>利用绝对定位一半 + 外加div+ margin-top:-25%</p>
+            <div class="out">
+                <div class="in2-1">
+                    <div class="in2-2 in"></div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="cover">
-        <p>绝对定位 + margin: auto</p>
-        <div class="out">
-            <div class="in4 in"></div>
+        <div class="cover">
+            <p>利用绝对定位一半 + transform</p>
+            <div class="out">
+                <div class="in3 in"></div>
+            </div>
         </div>
-    </div>
-    <div class="cover">
-        <p>利用flex + align-items</p>
-        <div class="out in5">
-            <div class="in"></div>
+        <div class="cover">
+            <p>绝对定位 + margin: auto</p>
+            <div class="out">
+                <div class="in4 in"></div>
+            </div>
         </div>
-    </div>
-    <div class="cover">
-        <p>利用flex + justify-content + flex-direction</p>
-        <div class="out in6 ">
-            <div class="in"></div>
+        <div class="cover">
+            <p>利用flex + align-items</p>
+            <div class="out in5">
+                <div class="in"></div>
+            </div>
         </div>
-    </div>
-    <div class="cover">
-        <p>利用vertical-align:center</p>
-        <div class="out in7-1">
-            <div class="in7-2 in"></div>
+        <div class="cover">
+            <p>利用flex + justify-content + flex-direction</p>
+            <div class="out in6 ">
+                <div class="in"></div>
+            </div>
         </div>
-    </div>
-    <div class="cover">
-        <p>利用table-cell</p>
-        <div class="out in8-1">
-            <div class="in8-2 in"></div>
+        <div class="cover">
+            <p>利用vertical-align:center</p>
+            <div class="out in7-1">
+                <div class="in7-2 in"></div>
+            </div>
+        </div>
+        <div class="cover">
+            <p>利用table-cell</p>
+            <div class="out in8-1">
+                <div class="in8-2 in"></div>
+            </div>
         </div>
     </div>
 </body>
