@@ -6,16 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Swarz</title>
+    <link rel="stylesheet" href="./static/css/reset.css">
+    <style>
+        body {
+            width: 100%;
+            min-width: 800px;
+        }
+
+        body::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        .container {
+            width: 100%;
+            height: 0;
+            padding-top: 48%;
+            position: relative;
+            background-image: url(./static/photo/indexBgd.jpg);
+            height: 100%;
+            z-index: -3;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .container:after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: inherit;
+            filter: blur(6px);
+            z-index: -2;
+        }
+
+        .bgimg {
+            width: 85%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 5px;
+            box-shadow: 0 0 10px 6px rgba(0, 0, 0, .3);
+        }
+    </style>
 </head>
 
 <body>
-    <h2>this is swarz's personal blog</h2>
-    <h2>welcome!</h2>
-    <h6><a href="https://github.com/Swarz/swarz.github.io">this blog at github repository</a></h6>
-    <ol>
-        <li><a href="./note/shangxiajuzhong.html">多种方法实现上下居中</a></li>
-        <li><a href="./note/shuzuquchong.html">多种方法实现数组去重</a></li>
-    </ol>
+    <div class="container">
+        <img src="./static/photo/indexBgd.jpg" alt="" srcset="" class="bgimg">
+    </div>
+
 </body>
 
 </html>
